@@ -14,21 +14,21 @@ public class MenuMatrik {
 		input_menu = sc.nextInt();
 		
 		switch (input_menu) {
-		case 1:
-			jumlah_matrik();
-			break;
-			
-		case 2:
-			kurangi_matrik();
-			break;
-			
-		case 3:
-			perkalian_matrik();
-			break;
-			
-		default:
-			System.out.println("- Maaf, menu tidak ada");
-			break;
+			case 1:
+				jumlah_matrik();
+				break;
+				
+			case 2:
+				kurangi_matrik();
+				break;
+				
+			case 3:
+				perkalian_matrik();
+				break;
+				
+			default:
+				System.out.println("- Maaf, menu tidak ada");
+				break;
 		}
 
 	}
@@ -47,9 +47,9 @@ public class MenuMatrik {
 	}
 	
 	
-	private static boolean cek_kali(int a_row, int b_col)
+	private static boolean cek_kali(int a_col, int b_row)
 	{
-		if(a_row == b_col)
+		if(a_col == b_row)
 		{
 			return true;
 		} else 
@@ -75,14 +75,14 @@ public class MenuMatrik {
 		
 		if(cek_jumlahkurang(a_col, a_row, b_col, b_row))
 		{
-			int matrik_a[][] = new int[a_col][a_row];
-			int matrik_b[][] = new int[b_col][b_row];
-			int hasil_jumlah[][] = new int[a_col][a_row];
+			int matrik_a[][] = new int[a_row][a_col];
+			int matrik_b[][] = new int[b_row][b_col];
+			int hasil_jumlah[][] = new int[a_row][a_col];
 			
 			System.out.println("\n-- INPUT MATRIK A");
-			for(loop_a = 0; loop_a < a_col; loop_a++)
+			for(loop_a = 0; loop_a < a_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < a_row; loop_b++)
+				for(loop_b = 0; loop_b < a_col; loop_b++)
 				{
 					System.out.print("- Matrik A baris ke-"+(loop_a+1)+" kolom ke-"+(loop_b+1)+" : ");
 					matrik_a[loop_a][loop_b] = sc.nextInt();
@@ -90,9 +90,9 @@ public class MenuMatrik {
 			}
 			
 			System.out.println("\n-- INPUT MATRIK B");
-			for(loop_a = 0; loop_a < b_col; loop_a++)
+			for(loop_a = 0; loop_a < b_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < b_row; loop_b++)
+				for(loop_b = 0; loop_b < b_col; loop_b++)
 				{
 					System.out.print("- Matrik B baris ke-"+(loop_a+1)+" kolom ke-"+(loop_b+1)+" : ");
 					matrik_b[loop_a][loop_b] = sc.nextInt();
@@ -101,9 +101,9 @@ public class MenuMatrik {
 			
 			// PRINT MATRIK A
 			System.out.println("\n- MATRIK A");
-			for(loop_a = 0; loop_a < a_col; loop_a++)
+			for(loop_a = 0; loop_a < a_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < a_row; loop_b++)
+				for(loop_b = 0; loop_b < a_col; loop_b++)
 				{
 					System.out.print(matrik_a[loop_a][loop_b]+" ");
 				}
@@ -112,9 +112,9 @@ public class MenuMatrik {
 			
 			// PRINT MATRIK B
 			System.out.println("\n- MATRIK B");
-			for(loop_a = 0; loop_a < b_col; loop_a++)
+			for(loop_a = 0; loop_a < b_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < b_row; loop_b++)
+				for(loop_b = 0; loop_b < b_col; loop_b++)
 				{
 					System.out.print(matrik_b[loop_a][loop_b]+" ");
 				}
@@ -123,9 +123,9 @@ public class MenuMatrik {
 			
 			// HITUNG PENJUMLAHAN
 			System.out.println("\n* Matrik A + Matrik B");
-			for(loop_a = 0; loop_a < a_col; loop_a++)
+			for(loop_a = 0; loop_a < a_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < a_row; loop_b++)
+				for(loop_b = 0; loop_b < a_col; loop_b++)
 				{
 					hasil_jumlah[loop_a][loop_b] = matrik_a[loop_a][loop_b] + matrik_b[loop_a][loop_b];
 					System.out.print(hasil_jumlah[loop_a][loop_b]+" ");
@@ -156,24 +156,24 @@ public class MenuMatrik {
 		
 		if(cek_jumlahkurang(a_col, a_row, b_col, b_row))
 		{
-			int matrik_a[][] = new int[a_col][a_row];
-			int matrik_b[][] = new int[b_col][b_row];
-			int hasil_kurang[][] = new int[a_col][a_row];
+			int matrik_a[][] = new int[a_row][a_col];
+			int matrik_b[][] = new int[b_row][b_col];
+			int hasil_kurang[][] = new int[a_row][a_col];
 			
-			System.out.println("\n-- INPUT MATRIK A --");
-			for(loop_a = 0; loop_a < a_col; loop_a++)
+			System.out.println("\n-- INPUT MATRIK A");
+			for(loop_a = 0; loop_a < a_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < a_row; loop_b++)
+				for(loop_b = 0; loop_b < a_col; loop_b++)
 				{
 					System.out.print("- Matrik A baris ke-"+(loop_a+1)+" kolom ke-"+(loop_b+1)+" : ");
 					matrik_a[loop_a][loop_b] = sc.nextInt();
 				}
 			}
 			
-			System.out.println("\n-- INPUT MATRIK B --");
-			for(loop_a = 0; loop_a < b_col; loop_a++)
+			System.out.println("\n-- INPUT MATRIK B");
+			for(loop_a = 0; loop_a < b_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < b_row; loop_b++)
+				for(loop_b = 0; loop_b < b_col; loop_b++)
 				{
 					System.out.print("- Matrik B baris ke-"+(loop_a+1)+" kolom ke-"+(loop_b+1)+" : ");
 					matrik_b[loop_a][loop_b] = sc.nextInt();
@@ -181,10 +181,10 @@ public class MenuMatrik {
 			}
 			
 			// PRINT MATRIK A
-			System.out.println("\n- MATRIK A -");
-			for(loop_a = 0; loop_a < a_col; loop_a++)
+			System.out.println("\n* MATRIK A");
+			for(loop_a = 0; loop_a < a_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < a_row; loop_b++)
+				for(loop_b = 0; loop_b < a_col; loop_b++)
 				{
 					System.out.print(matrik_a[loop_a][loop_b]+" ");
 				}
@@ -192,10 +192,10 @@ public class MenuMatrik {
 			}
 			
 			// PRINT MATRIK B
-			System.out.println("\n- MATRIK B -");
-			for(loop_a = 0; loop_a < b_col; loop_a++)
+			System.out.println("\n* MATRIK B");
+			for(loop_a = 0; loop_a < b_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < b_row; loop_b++)
+				for(loop_b = 0; loop_b < b_col; loop_b++)
 				{
 					System.out.print(matrik_b[loop_a][loop_b]+" ");
 				}
@@ -204,9 +204,9 @@ public class MenuMatrik {
 			
 			// HITUNG dan PRINT HASIL PENGURANGAN
 			System.out.println("\n* Matrik A - Matrik B");
-			for(loop_a = 0; loop_a < a_col; loop_a++)
+			for(loop_a = 0; loop_a < a_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < a_row; loop_b++)
+				for(loop_b = 0; loop_b < a_col; loop_b++)
 				{
 					hasil_kurang[loop_a][loop_b] = matrik_a[loop_a][loop_b] - matrik_b[loop_a][loop_b];
 					System.out.print(hasil_kurang[loop_a][loop_b]+" ");
@@ -224,7 +224,7 @@ public class MenuMatrik {
 	
 	private static void perkalian_matrik()
 	{
-		System.out.println("\n- Penjumlahan Matrik -");
+		System.out.println("\n- Perkalian Matrik -");
 		System.out.println("--- ORDO MATRIK A ---");
 		System.out.print("** Jumlah Baris = "); a_row = sc.nextInt();
 		System.out.print("** Jumlah Kolom = "); a_col = sc.nextInt();
@@ -235,26 +235,26 @@ public class MenuMatrik {
 		
 		System.out.println();
 		
-		if(cek_kali(a_row, b_col))
+		if(cek_kali(a_col, b_row))
 		{
-			int matrik_a[][] = new int[a_col][a_row];
-			int matrik_b[][] = new int[b_col][b_row];
+			int matrik_a[][] = new int[a_row][a_col];
+			int matrik_b[][] = new int[b_row][b_col];
 			int hasil_kali[][] = new int[a_row][b_col];
 			
-			System.out.println("\n-- INPUT MATRIK A --");
-			for(loop_a = 0; loop_a < matrik_a.length; loop_a++)
+			System.out.println("\n-- INPUT MATRIK A");
+			for(loop_a = 0; loop_a < a_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < matrik_a.length; loop_b++)
+				for(loop_b = 0; loop_b < a_col; loop_b++)
 				{
 					System.out.print("- Matrik A baris ke-"+(loop_a+1)+" kolom ke-"+(loop_b+1)+" : ");
 					matrik_a[loop_a][loop_b] = sc.nextInt();
 				}
 			}
 			
-			System.out.println("\n-- INPUT MATRIK B --");
-			for(loop_a = 0; loop_a < matrik_b.length; loop_a++)
+			System.out.println("\n-- INPUT MATRIK B");
+			for(loop_a = 0; loop_a < b_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < matrik_b.length; loop_b++)
+				for(loop_b = 0; loop_b < b_col; loop_b++)
 				{
 					System.out.print("- Matrik B baris ke-"+(loop_a+1)+" kolom ke-"+(loop_b+1)+" : ");
 					matrik_b[loop_a][loop_b] = sc.nextInt();
@@ -262,10 +262,10 @@ public class MenuMatrik {
 			}
 			
 			// PRINT MATRIK A
-			System.out.println("\n- MATRIK A -");
-			for(loop_a = 0; loop_a < matrik_a.length; loop_a++)
+			System.out.println("\n* MATRIK A");
+			for(loop_a = 0; loop_a < a_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < matrik_a.length; loop_b++)
+				for(loop_b = 0; loop_b < a_col; loop_b++)
 				{
 					System.out.print(matrik_a[loop_a][loop_b]+" ");
 				}
@@ -273,10 +273,10 @@ public class MenuMatrik {
 			}
 			
 			// PRINT MATRIK B
-			System.out.println("\n- MATRIK B -");
-			for(loop_a = 0; loop_a < matrik_b.length; loop_a++)
+			System.out.println("\n* MATRIK B");
+			for(loop_a = 0; loop_a < b_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < matrik_b.length; loop_b++)
+				for(loop_b = 0; loop_b < b_col; loop_b++)
 				{
 					System.out.print(matrik_b[loop_a][loop_b]+" ");
 				}
@@ -285,11 +285,11 @@ public class MenuMatrik {
 			
 			// HITUNG dan PRINT PERKALIAN
 			System.out.println("\n* Matrik A . Matrik B");
-			for(loop_a = 0; loop_a < hasil_kali.length; loop_a++)
+			for(loop_a = 0; loop_a < a_row; loop_a++)
 			{
-				for(loop_b = 0; loop_b < hasil_kali.length; loop_b++)
+				for(loop_b = 0; loop_b < b_col; loop_b++)
 				{
-					for(loop_c = 0; loop_c < hasil_kali.length; loop_c++)
+					for(loop_c = 0; loop_c < b_row; loop_c++)
 					{
 						hasil_kali[loop_a][loop_b] += matrik_a[loop_a][loop_c] * matrik_b[loop_c][loop_b];
 					}
@@ -300,7 +300,7 @@ public class MenuMatrik {
 			
 		} else 
 		{
-			System.out.println("-- Maaf, matrik A dan B tidak bisa dijumlahkan");
+			System.out.println("-- Maaf, matrik A dan B tidak bisa dikalikan");
 		}
 	}
 
